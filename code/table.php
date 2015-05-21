@@ -33,7 +33,7 @@ include 'connection.php';
 					//mysql_free_result($result);
 	?>
 <tr>
-					<td>Large</td>
+					<td>Small</td>
 					<td><?php echo "{$row[3]}"?></td>
 					<td><?php echo "{$row[4]}"?></td>
 					<td><?php echo "{$row[5]}"?></td>
@@ -53,7 +53,7 @@ include 'connection.php';
 	$row = mysqli_fetch_array($result);
 ?>
 <tr>
-					<td>Small</td>
+					<td>Large</td>
 					<td><?php echo "{$row[3]}"?></td>
 					<td><?php echo "{$row[4]}"?></td>
 					<td><?php echo "{$row[5]}"?></td>
