@@ -39,6 +39,7 @@ body a{
 	-moz-transition: 0.5s all;
 	-ms-transition: 0.5s all;
 }
+
 .header-top{
 	display:none;
 }
@@ -561,6 +562,16 @@ ul.feature-grid li i{
 .test {
   padding: 1.5em 0;
 }
+#seatTable {
+	border-style: solid;
+	border-width: 1px;
+}
+#seatTable td {
+	border-style: solid;
+	border-width: 1px;
+	padding: 6px;
+	text-align: center;
+}
 .our{
 	float:left;
 	width: 31.3%;
@@ -924,7 +935,7 @@ a.just-do:hover {
 }
 .comment-grid-top h3,.top-single h3{
 	color:#000;
-	font-size:1.7em;
+	font-size:1.2em;
 	font-weight: 300;
 }
 .top-comment-left{
@@ -1036,7 +1047,7 @@ label.arrow-in {
   color: #fff;
   border: none;
   outline: none;
-  margin: 0 auto;
+  margin: 10px auto;
   -webkit-appearance: none;
   font-weight: 700;
   transition: 0.5s all;
@@ -1722,7 +1733,7 @@ ul.date li span {
   font-size: 0.9em;
 }
 .comment-grid-top h3, .top-single h3 ,.archive h3{
-  font-size: 1.3em;
+  font-size: 1em;
 }
 .top-comment ,.top-com{
   padding: 0 0 0;
