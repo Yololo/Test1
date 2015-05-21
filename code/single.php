@@ -28,9 +28,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--fonts-->
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>
-<!--//fonts-->
-
+<!-- <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>
+ --><!--//fonts-->
+<script>
+	function updateWait(){
+		var strData = 'id='+<?php echo $resID; ?> + '&peopleNum=' + $('#peopleNum').val();
+		
+		$.ajax({
+			url:'waitManager.php',
+			type:'POST',
+			data:strData,
+			success: function(data){
+				table.load("table.php",{id:<?php echo $resID; ?>});
+			}
+		});
+	}
+</script>
 </head>
 <body>
 	<div class="header">
@@ -254,25 +267,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="top-single">
 							<div class="grid-single">
 								<div class="your-single">
-									<input type="text" value="Name" onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Name';}">								
-									<div class="clear"> </div>
+									<!-- <input type="text" value="Name" onfocus="this.value='';" onblur="if (this.value == '') {this.value = 'Name';}">								
+									 -->
+
+									 <input type="number" min="1" max="12" id="peopleNum" placeholder='1'/>
+									 <div class="clear"> </div>
 								</div>
 								
 							</div>
 							<div class="grid-single-in">
-								<input type="submit" id="queue-btn" maxlength="2" value="QUEUE">
+								<input type="submit" id="queue-btn" maxlength="2" value="QUEUE" onclick="updateWait()"/>
 							</div>
 							<div class="clear"> </div>
 						</div>
 						<div class="tags">
 						<h3></h3>
 							<div id="tableID">
-							 <?php include_once'table.php'; ?>
 							</div>
 								<script type='text/javascript'>
 								  var table = $('#tableID');
+								  	table.load("table.php",{id:<?php echo $resID; ?>});
 								 var refresher = setInterval(function(){
-								   table.load("table.php");
+								   	table.load("table.php",{id:<?php echo $resID; ?>});
 								 }, 1000);
 								 setTimeout(function() {
 								   clearInterval(refresher);

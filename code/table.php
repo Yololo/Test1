@@ -1,14 +1,12 @@
 <?php
 include 'connection.php';
+$resID = $_POST['id'];
 ?>
 
 
 <table id="seatTable">
 <tr>
 	<td>
-		<?php
-			$resID = 1;				
-		?>
 		Size
 	</td>
 	
@@ -18,8 +16,6 @@ include 'connection.php';
 </tr>
 
 	<?php
-				
-	
 					$sql = "SELECT * FROM seat WHERE restaurantID = ".$resID; 	
 					$result = mysqli_query($conn, $sql);
 					if(! $result )
@@ -33,7 +29,7 @@ include 'connection.php';
 					//mysql_free_result($result);
 	?>
 <tr>
-					<td>Small</td>
+					<td>Small (1-2)</td>
 					<td><?php echo "{$row[3]}"?></td>
 					<td><?php echo "{$row[4]}"?></td>
 					<td><?php echo "{$row[5]}"?></td>
@@ -43,7 +39,7 @@ include 'connection.php';
 	$row = mysqli_fetch_array($result);
 ?>
 <tr>
-					<td>Medium</td>
+					<td>Medium (3-6)</td>
 					<td><?php echo "{$row[3]}"?></td>
 					<td><?php echo "{$row[4]}"?></td>
 					<td><?php echo "{$row[5]}"?></td>
@@ -53,7 +49,7 @@ include 'connection.php';
 	$row = mysqli_fetch_array($result);
 ?>
 <tr>
-					<td>Large</td>
+					<td>Large (7-12)</td>
 					<td><?php echo "{$row[3]}"?></td>
 					<td><?php echo "{$row[4]}"?></td>
 					<td><?php echo "{$row[5]}"?></td>

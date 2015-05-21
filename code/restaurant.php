@@ -1,9 +1,8 @@
-<!--A Design by W3layouts 
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+<?php
+session_start();
+$resID= $_SESSION['userID'];
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,19 +19,19 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--fonts-->
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>
-<!--//fonts-->
+<!-- <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>
+ --><!--//fonts-->
 
 </head>
 <script>
 	function updateSeat(ts){
-		var strData = 'tableType='+ $('#tableType').val() + '&tableStatus=' + ts;
+		var strData = 'id='+<?php echo $resID; ?>+'&tableType='+ $('#tableType').val() + '&tableStatus=' + ts;
 		$.ajax({
 			url:'tableManager.php',
 			type:'POST',
 			data:strData,
 			success: function(data){
-				table.load("table.php");
+				table.load("table.php",{id:<?php echo $resID; ?>});
 			}
 		});
 	}
@@ -163,12 +162,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="tags">
 					<h3>Table</h3>
 						<div id="tableID">
-						 <?php include_once'table.php'; ?>
+						 
 						</div>
 						    <script type='text/javascript'>
 						      var table = $('#tableID');
+
+						       table.load("table.php",{id:<?php echo $resID; ?>});
 						     var refresher = setInterval(function(){
-						       table.load("table.php");
+						       table.load("table.php",{id:<?php echo $resID; ?>});
 						     }, 1000);
 						     setTimeout(function() {
 						       clearInterval(refresher);
