@@ -24,6 +24,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--//fonts-->
 
 </head>
+<script>
+	function updateSeat(ts){
+		var strData = 'tableType='+ $('#tableType').val() + '&tableStatus=' + ts;
+		$.ajax({
+			url:'tableManager.php',
+			type:'POST',
+			data:strData,
+			success: function(data){
+				table.load("table.php");
+			},
+			error: function(){
+				alert("error");
+			}
+		});
+	}
+</script>
 <body>
 	<div class="header">
 		<div class="header-left header-left3">
@@ -122,19 +138,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="top-single">
 				<h3>Table Type</h3>
-				<form method="post" action="tableManager.php">
 				<div class="grid-single">
-					<select name="tableType">
+					<select id="tableType">
 					  <option value="1">Small</option>
 					  <option value="2">Medium</option>
 					  <option value="3">Large</option>
 					</select>
 				</div>
 				<div class="grid-single-in">
-					<input type="submit" name="tableStatus" value="CUSTOMER IN">
-					<input type="submit" name="tableStatus" value="CUSTOMER OUT">
+					<input type="button" class="seatChange" value="CUSTOMER IN" onclick="updateSeat(1)">
+					<input type="button" class="seatChange" value="CUSTOMER OUT" onclick="updateSeat(2)">
 				</div>
-				</form>
 				<div class="clear"> </div>
 			</div>
 				</div>
@@ -151,7 +165,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="tags">
 					<h3>Table</h3>
-						<?php include 'table.php'; ?>
+						<div id="tableID">
+						 <?php include_once'table.php'; ?>
+						</div>
+						    <script type='text/javascript'>
+						      var table = $('#tableID');
+						     var refresher = setInterval(function(){
+						       table.load("table.php");
+						     }, 1000);
+						     setTimeout(function() {
+						       clearInterval(refresher);
+						     }, 1800000);
+						</script>
 					</div>
 					
 					
