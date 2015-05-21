@@ -96,7 +96,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						  <ul class="rslides" id="slider4">
 							<?php 
 							
-							$query = mysql_query("select image from image where imageID={$resID}");
+							$query = mysqli_query($conn, "select image from image where imageID={$resID}");
 							//$query = mysql_query("select resID, imageID from homepage h, image i where resID = imageID LIMIT 4;");
 							//$query_img = mysql_query("select image from image where imageID IN (select homeID from homepage) LIMIT 4;");
 							
@@ -104,7 +104,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							$query = mysql_query("select resID, name from homepage h, restaurant r where resID = homeID;");
 							$query_img = mysql_query("select image from image i where imageID IN (select homeID from homepage) LIMIT 16;");
 							 */
-							while ($row = mysql_fetch_array($query))
+							while ($row = mysqli_fetch_array($query))
 							{
 								echo 
 								"<li> 
@@ -123,19 +123,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<?php
 						//$sql = 'SELECT * FROM restaurant';
 
-						mysql_select_db('noq');
-						$result = mysql_query( $sql, $conn );
+						//mysqli_select_db('noq');
+						$result = mysqli_query( $conn, $sql);
 						if(! $result )
 						{
-						  die('Could not get data: ' . mysql_error());
+						  die('Could not get data: ' . mysqli_error());
 						}
 						
-						if($row = mysql_fetch_array($result, MYSQL_NUM))
+						if($row = mysqli_fetch_array($result))
 						{
 						echo "{$row[2]}";
 						}
 						
-						mysql_free_result($result);
+						mysqli_free_result($result);
 						?>
 					</H2>
 					
@@ -143,19 +143,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<?php
 					//$sql = 'SELECT * FROM restaurant';
 
-					mysql_select_db('noq');
-					$result = mysql_query( $sql, $conn );
+					//mysqli_select_db('noq');
+					$result = mysqli_query( $conn, $sql );
 					if(! $result )
 					{
-					  die('Could not get data: ' . mysql_error());
+					  die('Could not get data: ' . mysqli_error());
 					}
 					
-					if($row = mysql_fetch_array($result, MYSQL_NUM))
+					if($row = mysqli_fetch_array($result))
 					{
 					echo "{$row[6]}";
 					}
 					
-					mysql_free_result($result);
+					mysqli_free_result($result);
 					?>
 					</p>
 					
@@ -172,19 +172,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<?php
 								//$sql = 'SELECT * FROM restaurant';
 
-								mysql_select_db('noq');
-								$result = mysql_query( $sql, $conn );
+								//mysqli_select_db('noq');
+								$result = mysqli_query( $conn, $sql );
 								if(! $result )
 								{
-								  die('Could not get data: ' . mysql_error());
+								  die('Could not get data: ' . mysqli_error());
 								}
 								
-								if($row = mysql_fetch_array($result, MYSQL_NUM))
+								if($row = mysqli_fetch_array($result))
 								{
 								echo "{$row[3]}";
 								}
 								
-								mysql_free_result($result);
+								mysqli_free_result($result);
 
 							?>
 								</span>
@@ -193,19 +193,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<?php
 								//$sql = 'SELECT * FROM restaurant';
 
-								mysql_select_db('noq');
-								$result = mysql_query( $sql, $conn );
+								//mysqli_select_db('noq');
+								$result = mysqli_query( $conn, $sql );
 								if(! $result )
 								{
-								  die('Could not get data: ' . mysql_error());
+								  die('Could not get data: ' . mysqli_error());
 								}
 								
-								if($row = mysql_fetch_array($result, MYSQL_NUM))
+								if($row = mysqli_fetch_array($result))
 								{
 								echo "{$row[4]}";
 								}
 								
-								mysql_free_result($result);
+								mysqli_free_result($result);
 
 							?>
 								</span>
@@ -214,19 +214,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<?php
 								//$sql = 'SELECT * FROM restaurant';
 
-								mysql_select_db('noq');
-								$result = mysql_query( $sql, $conn );
+								//mysqli_select_db('noq');
+								$result = mysqli_query( $conn, $sql );
 								if(! $result )
 								{
-								  die('Could not get data: ' . mysql_error());
+								  die('Could not get data: ' . mysqli_error());
 								}
 								
-								if($row = mysql_fetch_array($result, MYSQL_NUM))
+								if($row = mysqli_fetch_array($result))
 								{
 								echo "{$row[5]}";
 								}
 								
-								mysql_free_result($result);
+								mysqli_free_result($result);
 
 							?>
 								</span>
@@ -264,6 +264,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							<div class="clear"> </div>
 						</div>
+						<div class="tags">
+						<h3></h3>
+							<div id="tableID">
+							 <?php include_once'table.php'; ?>
+							</div>
+								<script type='text/javascript'>
+								  var table = $('#tableID');
+								 var refresher = setInterval(function(){
+								   table.load("table.php");
+								 }, 1000);
+								 setTimeout(function() {
+								   clearInterval(refresher);
+								 }, 1800000);
+							</script>
+							</div>
 					</div>
 					
 					<!-- //////////////////////////////////////////////////////////////////////////////////////////////////// -->

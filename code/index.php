@@ -85,12 +85,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 			<?php
 			include 'connection.php';
-			$query = mysql_query("select resID, name from homepage h, restaurant r where resID = homeID;");
-			$query_img = mysql_query("select image from image i where imageID IN (select homeID from homepage) LIMIT 16;");
+			$query = mysqli_query($conn, "select resID, name from homepage h, restaurant r where resID = homeID;");
+			$query_img = mysqli_query($conn, "select image from image i where imageID IN (select homeID from homepage) LIMIT 16;");
 			
-			while ($row = mysql_fetch_array($query))
+			while ($row = mysqli_fetch_array($query))
 			{
-			$row_img = mysql_fetch_array($query_img);
+			$row_img = mysqli_fetch_array($query_img);
 			echo "<div class='content-grid'>
 				<a href='single.php?id=" . $row['resID'] . "' class='b-link-stripe b-animate-go  thickbox'>".
 					"<img  src='images/". $row_img['image'] ."' />"
