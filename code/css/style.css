@@ -1003,7 +1003,7 @@ label.arrow-in {
 .your-single {
   border: 1px solid #e2e2e2;
   position: relative;
-  margin: 0.8em 0;
+  margin: 0 0;
 }
 .your-single i {
     background: url(../images/img-sprite.png)no-repeat -9px -86px ;
@@ -1047,7 +1047,7 @@ label.arrow-in {
   text-align: center;
   color: #fff;
   outline: none;
-  margin: 10px auto;
+  margin: 0 auto;
   -webkit-appearance: none;
   font-weight: 700;
   transition: 0.5s all;
