@@ -1042,10 +1042,10 @@ label.arrow-in {
   width: 100%;
   font-size: 1.1em;
   background: #1ab5b3;
-  padding: 0.7em 1em;
+  padding: 0.8em 1em;
+  border: solid 1px #1ab5b3;
   text-align: center;
   color: #fff;
-  border: none;
   outline: none;
   margin: 10px auto;
   -webkit-appearance: none;
@@ -1057,6 +1057,12 @@ label.arrow-in {
   -moz-transition: 0.5s all;
   cursor:pointer;
 }
+
+/* Additional CSS 2015-05-20 */
+#queue-btn{
+width: 100px;
+}
+
 .grid-single-in input[type="submit"]:hover {
 	background:#242b2e;
 }
