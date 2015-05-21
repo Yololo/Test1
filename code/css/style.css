@@ -1114,7 +1114,7 @@ ul.archive-grid li a:hover{
 .your-top i.website {
     background-position: -93px -86px ;
 }
-.your-top input[type="text"],.grid-contact-in textarea {
+.your-top input[type="text"], .your-top input[type="password"], .grid-contact-in textarea {
   background: none;
   width: 70%;
   outline: none;
