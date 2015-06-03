@@ -40,11 +40,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="header">
 		<div class="header-left header-left3">
 			<div class="logo">
-				<a href="index.html"><img src="images/logo.png" alt=""></a>
+				<a href="index.php"><img src="images/logo.png" alt=""></a>
 			</div>
 			<div class="top-nav">
 				<ul >
-					<li  ><a href="index.html" >HOME</a></li>
+					<li  ><a href="index.php" >HOME</a></li>
 					<li><a href="work.html" class="black" > WORK</a></li>	
 					<li><a href="about.html" class="black1"> ABOUT</a></li>
 					<li><a href="blog.html" class="black2" > BLOG</a></li>
@@ -65,12 +65,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!---->
 		<div class="header-top">
 			<div class="logo-in">
-				<a href="index.html"><img src="images/logo.png" alt=""></a>
+				<a href="index.php"><img src="images/logo.png" alt=""></a>
 			</div>
 			<div class="top-nav-in">
 			<span class="menu"><img src="images/menu.png" alt=""> </span>
 				<ul >
-					<li class="active" ><a href="index.html" >HOME</a></li>
+					<li class="active" ><a href="index.php" >HOME</a></li>
 					<li><a href="work.html" class="black" > WORK</a></li>	
 					<li><a href="about.html" class="black1"> ABOUT</a></li>
 					<li><a href="blog.html" class="black2" > BLOG</a></li>
@@ -162,11 +162,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="tags">
 					<h3>Table</h3>
 						<div id="tableID">
-						 
 						</div>
 						    <script type='text/javascript'>
 						      var table = $('#tableID');
-
 						       table.load("table.php",{id:<?php echo $resID; ?>});
 						     var refresher = setInterval(function(){
 						       table.load("table.php",{id:<?php echo $resID; ?>});

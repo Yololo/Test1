@@ -2,17 +2,18 @@
 include 'connection.php';
 $resID = $_POST['id'];
 ?>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
+<link href="css/table.css" rel="stylesheet" type="text/css" media="all" />	
+</head>
 
-<table id="seatTable">
+<table cellspacing='0'>
 <tr>
-	<td>
-		Size
-	</td>
-	
-	<td>Seat</td>
-	<td>Occupied</td>
-	<td>Waiting</td>
+	<th>Size</th>
+	<th>Seat</th>
+	<th>Occupied</th>
+	<th>Waiting</th>
 </tr>
 
 	<?php

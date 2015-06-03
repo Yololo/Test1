@@ -294,7 +294,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								   clearInterval(refresher);
 								 }, 1800000);
 							</script>
-							</div>
+						</div>
 					</div>
 					
 					<!-- //////////////////////////////////////////////////////////////////////////////////////////////////// -->
