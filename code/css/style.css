@@ -1074,6 +1074,16 @@ label.arrow-in {
 width: 100px;
 }
 
+/* Additional CSS 2015-05-20 */
+#login-btn{
+width:100px;
+}
+
+/* Additional CSS 2015-06-19 */
+#register{
+width:120ox;
+}
+
 .grid-single-in input[type="submit"]:hover {
 	background:#242b2e;
 }

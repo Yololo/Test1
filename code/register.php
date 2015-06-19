@@ -13,6 +13,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- Custom Theme files -->
 <!--theme-style-->
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
+<link href="css/style2.css" rel="stylesheet" type="text/css" media="all" />	
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -71,17 +72,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				
 			<div class="top-contact">
 				<h3>Register | <a href="login.php">Login</a></h3>
-				<form action="" method="POST">
+				<form action="registerManager.php" method="POST">
 				<div class="grid-contact">
 					<div class="your-top">
-						<input type="text" name="user" value="Username">
+						<input type="text" name="user" placeholder="Username">
 						<div class="clear"> </div>
 					</div>
-				<div class="your-top">
-						<input type="text" name="pass" value="Password">								
+					<div class="your-top">
+						<input type="password" name="pass" placeholder="Password">								
 						<div class="clear"> </div>
 					</div>
-					<input type="submit" name="submit" value="Create">
+	
+					&nbsp;&nbsp;&nbsp;	
+					<input type="radio" name="stats" id="radio4" class="css-checkbox" value="1"/>
+					<label for="radio4" class="css-label radGroup2">Customer</label> &nbsp;&nbsp;&nbsp;
+
+					<input type="radio" name="stats" id="radio5" class="css-checkbox" value="2"/>
+					<label for="radio5" class="css-label radGroup2">Restaurant</label><br><br>
+
+					<div class="grid-single-in">
+					<input type="submit" id="register" name="submit" value="Register">
+					</div>
+				</form>
 				</div>
 			</div>
 			</div>
@@ -92,39 +104,3 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </body>
 </html>
-
-<?php
-
-
-if(isset($_POST["submit"])){
-
-if(!empty($_POST['user']) && !empty($_POST['pass'])) {
-	$user=$_POST['user'];
-	$pass=$_POST['pass'];
-	
-	include 'connection.php';
-	
-	$query=mysql_query("SELECT * FROM login WHERE username='".$user."' AND password='".$pass."'");
-	$numrows=mysql_num_rows($query);
-	if($numrows==0)
-	{
-	$sql="INSERT INTO login(username,password) VALUES('$user','$pass')";
-
-	$result=mysql_query($sql);
-
-
-	if($result){
-	echo "Account Successfully Created";
-	} else {
-	echo "Failure!";
-	}
-
-	} else {
-	echo "That username already exists! Please try again with another.";
-	}
-
-} else {
-	echo "All fields are required!";
-}
-}
-?>
