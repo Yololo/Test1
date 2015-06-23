@@ -43,7 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="top-nav">
 				<ul >
 					<li class="active" ><a href="index.php" >HOME</a></li>
-					<li><a href="#" class="black">RESTAURANTS</a></li>
+					<li><a href="list.php" class="black">RESTAURANTS</a></li>
 					<?php
 					if(empty($resID))
 					{?>
@@ -83,7 +83,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<span class="menu"><img src="images/menu.png" alt=""> </span>
 				<ul >
 					<li class="active" ><a href="index.php" >HOME</a></li>
-					<li><a href="#" class="black">RESTAURANTS</a></li>
+					<li><a href="list.php" class="black">RESTAURANTS</a></li>
 					<?php
 					if(empty($resID))
 					{?>
