@@ -1380,10 +1380,10 @@ ul.date li i {
   font-size: 1.5em;
 }
 .header-left {
-  min-height: 766px;
+  min-height: 785px;
 }
 .header-work {
-  min-height: 890px;
+  min-height: 1150px;
 }
 .header-left1 {
   min-height: 1251px;
@@ -1398,7 +1398,7 @@ ul.date li i {
   min-height: 969px;
 }
 .header-left3 {
-  min-height: 1561px;
+  min-height: 1080px;
 }
 .grid-single-in textarea {
   width: 86%;

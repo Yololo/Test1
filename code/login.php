@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <html>
 
-<title>New Tab</title>
+<title>NoQ - Login</title>
 <!-- jQuery-->
 <script src="js/jquery.min.js"></script>
 <!-- Custom Theme files -->
@@ -37,8 +37,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li><a href="register.php" class="black4" > REGISTER</a></li>
 				</ul>
 			</div>
-			
-			<p class="footer-class">Powered by  <a href="http://w3layouts.com/" target="_blank">CodeRunner&#169 </a> </p>
+			<ul class="social-in">
+				<li><a href="#"><i> </i></a></li>
+				<li><a href="#"><i class="gmail"> </i></a></li>
+				<li><a href="#"><i class="twitter"> </i></a></li>
+				<li><a href="#"><i class="pin"> </i></a></li>
+				<li><a href="#"><i class="dribble"> </i></a></li>
+				<li><a href="#"><i class="behance"> </i></a></li>
+				
+			</ul>
+			<p class="footer-class">Powered by  <a href="#" target="_blank">CodeRunner&#169 </a> </p>
 		</div>
 		<!---->
 		<!---->
@@ -58,6 +66,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						$(".top-nav-in ul").slideToggle(500, function(){
 						});
 					});
+
+					function dosubmit()
+  {
+  var username = document.getElementById("user").value;
+  var pass = document.getElementById("pass").value;
+
+  if(username == ""){
+  alert ("Username Should Not Be Empty !");
+  }else if(pass == ""){
+  alert ("Password Should Not Be Empty !");
+  }else{
+  var myform = document.getElementById("myform");
+  myform.action = "loginManager.php";
+  myform.submit();
+  }
+  }
 			</script>
 
 			</div>
@@ -67,22 +91,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			
 			<div class="content">
 			<div class="contact">
-				<h1>Please login to access the website</h1>
+				<h1>Please Login To Grant Access</h1>
 				
 			<div class="top-contact">
 				<h3>Login | <a href="register.php">Register</a></h3>
-				<form action="loginManager.php" method="POST">
+				<form id="myform" method="POST">
 				<div class="grid-contact">
 					<div class="your-top">
-						<input type="text" name="user" placeholder="Username">
+						<input type="text" name="user" id="user" placeholder="Username">
 						<div class="clear"> </div>
 					</div>
-				<div class="your-top">
-						<input type="password" name="pass" placeholder="Password">								
+					<div class="your-top">
+						<input type="password" name="pass" id="pass" placeholder="Password">								
 						<div class="clear"> </div>
 					</div>
-					<input type="submit" name="submit" value="Login">
+					<div class="grid-single-in">
+					<input type="submit" name="submit" value="Login" onclick="dosubmit()">
+					</div>
 				</div>
+				</form>
 			</div>
 			</div>
 			</div>

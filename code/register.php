@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <html>
 
-<title>New Tab</title>
+<title>NoQ - Register</title>
 <!-- jQuery-->
 <script src="js/jquery.min.js"></script>
 <!-- Custom Theme files -->
@@ -38,8 +38,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li class="active" ><a href="register.php" class="black4" >REGISTER</a></li>
 				</ul>
 			</div>
-			
-			<p class="footer-class">Powered by  <a href="http://w3layouts.com/" target="_blank">CodeRunner&#169 </a> </p>
+			<ul class="social-in">
+				<li><a href="#"><i> </i></a></li>
+				<li><a href="#"><i class="gmail"> </i></a></li>
+				<li><a href="#"><i class="twitter"> </i></a></li>
+				<li><a href="#"><i class="pin"> </i></a></li>
+				<li><a href="#"><i class="dribble"> </i></a></li>
+				<li><a href="#"><i class="behance"> </i></a></li>
+				
+			</ul>
+			<p class="footer-class">Powered by  <a href="#" target="_blank">CodeRunner&#169 </a> </p>
 		</div>
 		<!---->
 		<!---->
@@ -59,8 +67,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						$(".top-nav-in ul").slideToggle(500, function(){
 						});
 					});
-			</script>
 
+					function dosubmit()
+  {
+  var username = document.getElementById("user").value;
+  var pass = document.getElementById("pass").value;
+  var checked = false, radios = document.getElementsByName("stats");
+  
+  for(var i=0, radio; radio=radios[i]; i++){
+  	if(radio.checked){
+  		checked = true;
+  		break;
+  	}
+  }
+
+  if(username == ""){
+  alert ("Username Should Not Be Empty !");
+  }else if(pass == ""){
+  alert ("Password Should Not Be Empty !");
+  }else if(!checked){
+  alert ("Please Choose Between Customer Or Restaurant !");
+  }else{
+  var myform = document.getElementById("myform");
+  myform.action = "registerManager.php";
+  myform.submit();
+  }
+  }
+			</script>
+			
 			</div>
 			<div class="clear"> </div>
 		</div>
@@ -68,18 +102,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			
 			<div class="content">
 			<div class="contact">
-				<h1>Create an account to have access the website</h1>
+				<h1>Create An Account To Grant Access</h1>
 				
 			<div class="top-contact">
 				<h3>Register | <a href="login.php">Login</a></h3>
-				<form action="registerManager.php" method="POST">
+				<form id="myform" method="POST">
 				<div class="grid-contact">
 					<div class="your-top">
-						<input type="text" name="user" placeholder="Username">
+						<input type="text" id="user" name="user" placeholder="Username">
 						<div class="clear"> </div>
 					</div>
 					<div class="your-top">
-						<input type="password" name="pass" placeholder="Password">								
+						<input type="password" id="pass" name="pass" placeholder="Password">								
 						<div class="clear"> </div>
 					</div>
 	
@@ -91,7 +125,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<label for="radio5" class="css-label radGroup2">Restaurant</label><br><br>
 
 					<div class="grid-single-in">
-					<input type="submit" id="register" name="submit" value="Register">
+					<input type="submit" id="register" name="submit" value="Register" onclick="dosubmit()">
 					</div>
 				</form>
 				</div>

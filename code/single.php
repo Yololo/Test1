@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include 'connection.php';
 
 $resID = $_GET['id'];
@@ -14,7 +16,21 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Kappe a Personal Portfolio Category Flat Bootstarp Responsive Website Template | Single :: w3layouts</title>
+<title>NoQ - <?php
+						$result = mysqli_query( $conn, $sql);
+						if(! $result )
+						{
+						  die('Could not get data: ' . mysqli_error());
+						}
+						
+						if($row = mysqli_fetch_array($result))
+						{
+						echo "{$row[2]}";
+						}
+						
+						mysqli_free_result($result);
+			 ?>
+</title>
 <!-- jQuery-->
 <script src="js/jquery.min.js"></script>
 <!-- Custom Theme files -->
@@ -34,12 +50,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	function updateWait(){
 		var strData = 'id='+<?php echo $resID; ?> + '&peopleNum=' + $('#peopleNum').val();
 		
+		var pNum = $('#peopleNum').val();
+		var s;
+		if(pNum < 3)
+		{
+			s = <?php
+		$r = mysqli_query($conn, "Select * from seat where restaurantID='".$resID."' AND tableID=1;");
+		$a = mysqli_num_rows($r);
+		$w = mysqli_fetch_array($r);
+		echo "{$w[5]}";
+				?>;
+		}else if(pNum < 7)
+		{
+			s = <?php
+		$r = mysqli_query($conn, "Select * from seat where restaurantID='".$resID."' AND tableID=2;");
+		$a = mysqli_num_rows($r);
+		$w = mysqli_fetch_array($r);
+		echo "{$w[5]}";
+				?>;
+		}else {
+			s = <?php
+		$r = mysqli_query($conn, "Select * from seat where restaurantID='".$resID."' AND tableID=3;");
+		$a = mysqli_num_rows($r);
+		$w = mysqli_fetch_array($r);
+		echo "{$w[5]}";
+				?>;
+		}
+		
+		
 		$.ajax({
 			url:'waitManager.php',
 			type:'POST',
 			data:strData,
 			success: function(data){
 				table.load("table.php",{id:<?php echo $resID; ?>});
+				alert("You Have " + s + " More Customer(s)");
 			}
 		});
 	}
@@ -53,14 +98,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="top-nav">
 				<ul >
-					<li  ><a href="index.php" >HOME</a></li>
-					<li><a href="work.html" class="black" > WORK</a></li>	
-					<li><a href="about.html" class="black1"> ABOUT</a></li>
-					<li><a href="blog.html" class="black2" > BLOG</a></li>
-					<li><a href="404.html" class="black3" > SERVICES</a></li>
-					<li><a href="contact.html" class="black4" > PROFILE</a></li>
+					<li><a href="index.php" >HOME</a></li>
+					<li class="active" ><a href="#" class="black">RESTAURANTS</a></li>
+					<?php
+					if(empty($_SESSION['userID']))
+					{?>
+					<li><a href="register.php" class="black1">REGISTER</a></li>
+					<li><a href="login.php" class="black2">LOGIN</a></li>
+					<?php
+					}
+					?>
+					<?php
+					if(!empty($_SESSION['userID']))
+					{?>
+					<li><a href="member.php" class="black3">PROFILE</a></li>
+					<li><a href="logout.php" class="black4">LOGOUT</a></li>
+					<?php
+					}
+					?>
 				</ul>
 			</div>
+			<ul class="social-in">
+				<li><a href="#"><i> </i></a></li>
+				<li><a href="#"><i class="gmail"> </i></a></li>
+				<li><a href="#"><i class="twitter"> </i></a></li>
+				<li><a href="#"><i class="pin"> </i></a></li>
+				<li><a href="#"><i class="dribble"> </i></a></li>
+				<li><a href="#"><i class="behance"> </i></a></li>
+				
+			</ul>
+			<p class="footer-class">Powered by  <a href="#" target="_blank">CodeRunner&#169 </a> </p>
 		</div>
 		<!---->
 		<div class="header-top">
@@ -70,12 +137,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="top-nav-in">
 			<span class="menu"><img src="images/menu.png" alt=""> </span>
 				<ul >
-					<li class="active" ><a href="index.php" >HOME</a></li>
-					<li><a href="work.html" class="black" > WORK</a></li>	
-					<li><a href="about.html" class="black1"> ABOUT</a></li>
-					<li><a href="blog.html" class="black2" > BLOG</a></li>
-					<li><a href="404.html" class="black3" > SERVICES</a></li>
-					<li><a href="contact.html" class="black4" > PROFILE</a></li>
+					<li><a href="index.php" >HOME</a></li>
+					<li class="active" ><a href="#" class="black">RESTAURANTS</a></li>
+					<?php
+					if(empty($_SESSION['userID']))
+					{?>
+					<li><a href="register.php" class="black1">REGISTER</a></li>
+					<li><a href="login.php" class="black2">LOGIN</a></li>
+					<?php
+					}
+					?>
+					<?php
+					if(!empty($_SESSION['userID']))
+					{?>
+					<li><a href="member.php" class="black3">PROFILE</a></li>
+					<li><a href="logout.php" class="black4">LOGOUT</a></li>
+					<?php
+					}
+					?>
 				</ul>
 				<script>
 					$("span.menu").click(function(){
@@ -85,6 +164,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</script>
 
 			</div>
+
 			<div class="clear"> </div>
 		</div>
 			<!---->
@@ -276,7 +356,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								
 							</div>
 							<div class="grid-single-in">
+								<?php
+								if(!empty($_SESSION['userID']))
+								{
+								?>
 								<input type="submit" id="queue-btn" maxlength="2" value="QUEUE" onclick="updateWait()"/>
+								<?php
+								}else if(empty($_SESSION['userID']))
+								{
+								?>
+								<a href="login.php"><input type="submit" id="queue-btn" maxlength="2" value="QUEUE"/></a>
+								<?php
+								}
+								?>
 							</div>
 							<div class="clear"> </div>
 						</div>

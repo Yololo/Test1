@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(!empty($_SESSION['userID']))
+{
+$resID= $_SESSION['userID'];
+}
+?>
 <!--A Design by W3layouts 
 Author: W3layout
 Author URL: http://w3layouts.com
@@ -7,7 +14,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>Kappe</title>
+<title>NoQ - Home</title>
 <!-- jQuery-->
 <script src="js/jquery.min.js"></script>
 <!-- Custom Theme files -->
@@ -20,7 +27,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--fonts-->
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>
+<!--<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>-->
 <!--//fonts-->
 
 </head>
@@ -36,11 +43,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="top-nav">
 				<ul >
 					<li class="active" ><a href="index.php" >HOME</a></li>
-					<li><a href="work.html" class="black" > WORK</a></li>	
-					<li><a href="about.html" class="black1"> ABOUT</a></li>
-					<li><a href="blog.html" class="black2" > BLOG</a></li>
-					<li><a href="404.html" class="black3" > SERVICES</a></li>
-					<li><a href="member.php" class="black4" > PROFILE</a></li>
+					<li><a href="#" class="black">RESTAURANTS</a></li>
+					<?php
+					if(empty($resID))
+					{?>
+					<li><a href="register.php" class="black1">REGISTER</a></li>
+					<li><a href="login.php" class="black2">LOGIN</a></li>
+					<?php
+					}
+					?>
+					<?php
+					if(!empty($resID))
+					{?>
+					<li><a href="member.php" class="black3">PROFILE</a></li>
+					<li><a href="logout.php" class="black4">LOGOUT</a></li>
+					<?php
+					}
+					?>
 				</ul>
 			</div>
 			<ul class="social-in">
@@ -52,7 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<li><a href="#"><i class="behance"> </i></a></li>
 				
 			</ul>
-			<p class="footer-class">Powered by  <a href="http://w3layouts.com/" target="_blank">CodeRunner&#169 </a> </p>
+			<p class="footer-class">Powered by  <a href="#" target="_blank">CodeRunner&#169 </a> </p>
 		</div>
 		<!---->
 		<!---->
@@ -64,11 +83,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<span class="menu"><img src="images/menu.png" alt=""> </span>
 				<ul >
 					<li class="active" ><a href="index.php" >HOME</a></li>
-					<li><a href="work.html" class="black" > WORK</a></li>	
-					<li><a href="about.html" class="black1"> ABOUT</a></li>
-					<li><a href="blog.html" class="black2" > BLOG</a></li>
-					<li><a href="404.html" class="black3" > SERVICES</a></li>
-					<li><a href="member.php" class="black4" > PROFILE</a></li>
+					<li><a href="#" class="black">RESTAURANTS</a></li>
+					<?php
+					if(empty($resID))
+					{?>
+					<li><a href="register.php" class="black1">REGISTER</a></li>
+					<li><a href="login.php" class="black2">LOGIN</a></li>
+					<?php
+					}
+					?>
+					<?php
+					if(!empty($resID))
+					{?>
+					<li><a href="member.php" class="black3">PROFILE</a></li>
+					<li><a href="logout.php" class="black4">LOGOUT</a></li>
+					<?php
+					}
+					?>
 				</ul>
 				<script>
 					$("span.menu").click(function(){

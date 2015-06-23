@@ -31,24 +31,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="top-nav">
 				<ul >
-					<li><a href="index.php" >HOME</a></li>
-					<li><a href="#" class="black">RESTAURANTS</a></li>
-					<?php
-					if(empty($_SESSION['userID']))
-					{?>
-					<li><a href="register.php" class="black1">REGISTER</a></li>
-					<li><a href="login.php" class="black2">LOGIN</a></li>
-					<?php
-					}
-					?>
-					<?php
-					if(!empty($_SESSION['userID']))
-					{?>
-					<li class="active"><a href="member.php" class="black3">PROFILE</a></li>
+					<li><a href="restaurant.php" class="black">ADMINISTRATION</a></li>
+					<li class="active"><a href="profile.php" class="black">PROFILE</a></li>
 					<li><a href="logout.php" class="black4">LOGOUT</a></li>
-					<?php
-					}
-					?>
 				</ul>
 			</div>
 			<ul class="social-in">
@@ -69,24 +54,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="top-nav-in">
 			<span class="menu"><img src="images/menu.png" alt=""> </span>
 				<ul >
-					<li><a href="index.php" >HOME</a></li>
-					<li><a href="#" class="black">RESTAURANTS</a></li>
-					<?php
-					if(empty($_SESSION['userID']))
-					{?>
-					<li><a href="register.php" class="black1">REGISTER</a></li>
-					<li><a href="login.php" class="black2">LOGIN</a></li>
-					<?php
-					}
-					?>
-					<?php
-					if(!empty($_SESSION['userID']))
-					{?>
-					<li class="active"><a href="member.php" class="black3">PROFILE</a></li>
+					<li><a href="restaurant.php" class="black">ADMINISTRATION</a></li>
+					<li class="active"><a href="profile.php" class="black">PROFILE</a></li>
 					<li><a href="logout.php" class="black4">LOGOUT</a></li>
-					<?php
-					}
-					?>
 				</ul>
 				<script>
 					$("span.menu").click(function(){
@@ -116,25 +86,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					{
 						var name = document.getElementById("name").value;
 						var phone = document.getElementById("phone").value;
-						var checked = false, radios = document.getElementsByName("stats");
-  
-  						for(var i=0, radio; radio=radios[i]; i++){
-  							if(radio.checked){
-  								checked = true;
-  								break;
-  							}
-  						}
+						var ophour = document.getElementById("ophour").value;
+						var address = document.getElementById("address").value;
+						var description = document.getElementById("description").value;
 
   						if(name == ""){
   						alert ("Please Input Your Name !");
   						}else if(phone == ""){
   						alert ("Please Input Your Phone Number !");
-  						}else if(!checked){
-  						alert ("Please Choose Your Gender !");
+  						}else if(ophour == ""){
+  						alert ("Please Input Your Operation Hour !");
+  						}else if(address == ""){
+  						alert ("Please Input Your Address !");
+  						}else if(description == ""){
+  						alert ("Please Input Your Description !");
   						}else{
   						//alert (name + phone + checked);
   						var myform = document.getElementById("basicform");
-  						myform.action = "updateCustomer.php";
+  						myform.action = "updateRestaurant.php";
   						myform.submit();
   						}
 					}
@@ -170,14 +139,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 
 			<div class="work">
-			<h1>Update Basic Info</h1>
+			<h1>Update Restaurant Info</h1>
 				<div class="grid-contact">
 				<form id="basicform" method="POST">
 					Name: 
 					<div class="your-top">
 						<?php
 
-						$query = mysqli_query($conn, "Select cusID, name from customer Where cusID='". $_SESSION['userID'] ."'");
+						$query = mysqli_query($conn, "Select resID, name from restaurant Where resID='". $_SESSION['userID'] ."'");
 						$row = mysqli_fetch_array($query);
 
 						if($row[1]=="" || $row[1]==NULL)
@@ -197,7 +166,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="your-top">
 						<?php
 
-						$query1 = mysqli_query($conn, "Select cusID, phone from customer Where cusID='". $_SESSION['userID'] ."'");
+						$query1 = mysqli_query($conn, "Select resID, phone from restaurant Where resID='". $_SESSION['userID'] ."'");
 						$row1 = mysqli_fetch_array($query1);
 
 						if($row1[1]=="" || $row1[1]==NULL)
@@ -213,39 +182,64 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						?>						
 						<div class="clear"> </div>
 					</div>
-					Gender:
+					Operation Hour:
+					<div class="your-top">
+						<?php
+
+						$query2 = mysqli_query($conn, "Select resID, opHour from restaurant Where resID='". $_SESSION['userID'] ."'");
+						$row2 = mysqli_fetch_array($query2);
+
+						if($row2[1]=="" || $row2[1]==NULL)
+						{
+						?>
+						<input type="text" name="ophour" id="ophour" placeholder="Please Insert Your Operation Hour">	
+						<?php
+						}else {
+						?>	
+						<input type="text" name="ophour" id="ophour" value="<?php echo $row2[1] ?>">	
+						<?php
+						}
+						?>						
+						<div class="clear"> </div>
+					</div>
+					Address:
+					<div class="your-top">
+						<?php
+
+						$query3 = mysqli_query($conn, "Select resID, address from restaurant Where resID='". $_SESSION['userID'] ."'");
+						$row3 = mysqli_fetch_array($query3);
+
+						if($row3[1]=="" || $row3[1]==NULL)
+						{
+						?>
+						<input type="text" name="address" id="address" placeholder="Please Insert Your Address">	
+						<?php
+						}else {
+						?>	
+						<input type="text" name="address" id="address" value="<?php echo $row3[1] ?>">	
+						<?php
+						}
+						?>						
+						<div class="clear"> </div>
+					</div>
+					Description:
 					<br><br>
+
 					<?php
 
-					$query2 = mysqli_query($conn, "Select cusID, gender from customer Where cusID='". $_SESSION['userID'] ."'");
-					$row2 = mysqli_fetch_array($query2);
+						$query4 = mysqli_query($conn, "Select resID, description from restaurant Where resID='". $_SESSION['userID'] ."'");
+						$row4 = mysqli_fetch_array($query4);
 
-					if($row2[1]=="" || $row2[1]==NULL)
-					{
+						if($row4[1]=="" || $row4[1]==NULL)
+						{
 					?>
-					<input type="radio" name="stats" id="radio4" class="css-checkbox" value="M"/>
-					<label for="radio4" class="css-label radGroup2">Male</label> &nbsp;&nbsp;&nbsp;
-
-					<input type="radio" name="stats" id="radio5" class="css-checkbox" value="F"/>
-					<label for="radio5" class="css-label radGroup2">Female</label>
+					<textarea name="description" id="description" style="height: 170px; width: 430px;" placeholder"Please Insert Your Description..."></textarea>
 					<?php
-					}else if($row2[1]=="M"){
+						}else {
 					?>	
-					<input type="radio" name="stats" id="radio4" class="css-checkbox" value="M" checked="checked" />
-					<label for="radio4" class="css-label radGroup2">Male</label> &nbsp;&nbsp;&nbsp;
-
-					<input type="radio" name="stats" id="radio5" class="css-checkbox" value="F"/>
-					<label for="radio5" class="css-label radGroup2">Female</label>
+					<textarea name="description" id="description" style="height: 170px; width: 430px;"><?php echo $row4[1] ?></textarea>
 					<?php
-					}else {
-					?>	
-					<input type="radio" name="stats" id="radio4" class="css-checkbox" value="M"/>
-					<label for="radio4" class="css-label radGroup2">Male</label> &nbsp;&nbsp;&nbsp;
-
-					<input type="radio" name="stats" id="radio5" class="css-checkbox" value="F" checked="checked" />
-					<label for="radio5" class="css-label radGroup2">Female</label>
-					<?php
-					}
+						}
 					?>	
 
 					<br><br>
@@ -265,5 +259,3 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </body>
 </html>
-
-
