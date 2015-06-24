@@ -115,15 +115,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!---->
 		<div class="content">
 			<div class="work">
-			<h1>Update Password</h1>
+			<div class="skills">
+			<h3>Update Password</h3></div>
 				<div class="grid-contact">
 				<form id="passform" method="POST">
-					New Password: 
+					<div class="our-grid">
+					<h5>New Password: </h5></div>
 					<div class="your-top">
 						<input type="password" name="pass" id="pass" placeholder="New Password">
 						<div class="clear"> </div>
 					</div>
-					Re-Type Password: 
+					<div class="our-grid">
+					<h5>Re-Type Password: </h5></div>
 					<div class="your-top">
 						<input type="password" name="pass1" id="pass1" placeholder="Re-Type Password">								
 						<div class="clear"> </div>
@@ -139,10 +142,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 
 			<div class="work">
-			<h1>Update Restaurant Info</h1>
+			<div class="skills">
+			<h3>Update Restaurant Info</h3></div>
 				<div class="grid-contact">
 				<form id="basicform" method="POST">
-					Name: 
+					<div class="our-grid">
+					<h5>Name: </h5></div>
 					<div class="your-top">
 						<?php
 
@@ -162,7 +167,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						?>
 						<div class="clear"> </div>
 					</div>
-					Phone: 
+					<div class="our-grid">
+					<h5>Phone: </h5></div>
 					<div class="your-top">
 						<?php
 
@@ -182,7 +188,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						?>						
 						<div class="clear"> </div>
 					</div>
-					Operation Hour:
+					<div class="our-grid">
+					<h5>Operation Hour: </h5></div>
 					<div class="your-top">
 						<?php
 
@@ -202,7 +209,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						?>						
 						<div class="clear"> </div>
 					</div>
-					Address:
+					<div class="our-grid">
+					<h5>Address: </h5></div>
 					<div class="your-top">
 						<?php
 
@@ -222,8 +230,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						?>						
 						<div class="clear"> </div>
 					</div>
-					Description:
-					<br><br>
+					<div class="our-grid">
+					<h5>Description: </h5></div>
+					<br>
 
 					<?php
 

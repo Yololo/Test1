@@ -146,15 +146,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!---->
 		<div class="content">
 			<div class="work">
-			<h1>Update Password</h1>
+			<div class="skills"><h3>Update Password</h3></div>
 				<div class="grid-contact">
 				<form id="passform" method="POST">
-					New Password: 
+					<div class="our-grid">
+					<h5>New Password: </h5></div>
 					<div class="your-top">
 						<input type="password" name="pass" id="pass" placeholder="New Password">
 						<div class="clear"> </div>
 					</div>
-					Re-Type Password: 
+					<div class="our-grid">
+					<h5>Re-Type Password: </h5></div>
 					<div class="your-top">
 						<input type="password" name="pass1" id="pass1" placeholder="Re-Type Password">								
 						<div class="clear"> </div>
@@ -170,10 +172,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 
 			<div class="work">
-			<h1>Update Basic Info</h1>
+			<div class="skills"><h3>Update Basic Info</h3></div>
 				<div class="grid-contact">
 				<form id="basicform" method="POST">
-					Name: 
+					<div class="our-grid">
+					<h5>Name: </h5></div>
 					<div class="your-top">
 						<?php
 
@@ -193,7 +196,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						?>
 						<div class="clear"> </div>
 					</div>
-					Phone: 
+					<div class="our-grid">
+					<h5>Phone: </h5></div>
 					<div class="your-top">
 						<?php
 
@@ -213,8 +217,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						?>						
 						<div class="clear"> </div>
 					</div>
-					Gender:
-					<br><br>
+					<div class="our-grid">
+					<h5>Gender: </h5></div>
+					<br>
 					<?php
 
 					$query2 = mysqli_query($conn, "Select cusID, gender from customer Where cusID='". $_SESSION['userID'] ."'");

@@ -90,28 +90,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!---->
 			
 			<div class="content">
-			<div class="contact">
-				<h1>Please Login To Grant Access</h1>
-				
-			<div class="top-contact">
-				<h3>Login | <a href="register.php">Register</a></h3>
-				<form id="myform" method="POST">
-				<div class="grid-contact">
-					<div class="your-top">
-						<input type="text" name="user" id="user" placeholder="Username">
-						<div class="clear"> </div>
-					</div>
-					<div class="your-top">
-						<input type="password" name="pass" id="pass" placeholder="Password">								
-						<div class="clear"> </div>
-					</div>
-					<div class="grid-single-in">
-					<input type="submit" name="submit" value="Login" onclick="dosubmit()">
-					</div>
+				<div class="work">
+					<div class="skills"><h3>Please Login To Grant Access</h3></div>
+					<div class="top-contact"><h3>Login | <a href="register.php">Register</a></h3></div>
+						<div class="grid-contact">
+							<form id="myform" method="POST">
+							
+								<div class="your-top">
+									<input type="text" name="user" id="user" placeholder="Username">
+									<div class="clear"> </div>
+								</div>
+								
+								<div class="your-top">
+									<input type="password" name="pass" id="pass" placeholder="Password">								
+									<div class="clear"> </div>
+								</div>
+								
+								<br>
+								<div class="grid-single-in">
+									<input type="submit" name="submit" value="Login" onclick="dosubmit()">
+								</div>
+							</form>
+						</div>
+					
+					<div class="clear"> </div>
 				</div>
-				</form>
-			</div>
-			</div>
 			</div>
 		</div>
 		<div class="clear"> </div>
