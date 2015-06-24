@@ -21,7 +21,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--fonts-->
 <!--<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>-->
 <!--//fonts-->
-<style>
+<!--<style>
     /* generic table styling */
     table { border-collapse: collapse; }
     th, td { padding: 5px; }
@@ -33,7 +33,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     /* filter-table specific styling */
     td.alt { background-color: #ffc; background-color: rgba(255, 255, 0, 0.2); }
-</style>
+</style>-->
+<link href="css/table.css" rel="stylesheet" type="text/css" media="all" />  
 </head>
 <body>
     <div class="header">
@@ -133,8 +134,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 {
                     echo "<tr><td>". $row['ID'] ."</td>
                               <td><a href='single.php?id=" . $row['resID'] . "'>". $row['name'] ."</a></td>
-                              <td><center>". $row['phone'] ."</center></td>
-                              <td><center>". $row['opHour'] ."</center></td>
+                              <td>". $row['phone'] ."</td>
+                              <td>". $row['opHour'] ."</td>
                               <td>". $row['address'] ."</td>
                           </tr>";
                 }
