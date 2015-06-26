@@ -117,7 +117,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<?php
 			include 'connection.php';
 			$query = mysqli_query($conn, "select resID, name from homepage h, restaurant r where resID = homeID;");
-			$query_img = mysqli_query($conn, "select image from image i where imageID IN (select homeID from homepage) LIMIT 16;");
+			$query_img = mysqli_query($conn, "select image from image i where imageID IN (select homeID from homepage) order by ID LIMIT 16;");
 			
 			while ($row = mysqli_fetch_array($query))
 			{

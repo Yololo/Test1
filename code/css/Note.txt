@@ -1,0 +1,4 @@
+style	= general style
+style2	= css style for register.php
+
+table	= css style for table

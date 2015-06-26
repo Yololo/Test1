@@ -1,7 +1,7 @@
 <?php
 $username = "root";
 $password = "";
-$host = "localhost:3306";
+$host = "localhost:3307";
 $dbname = "noq";
 
 /* $conn=mysql_connect($host,$username,$password) or die(mysql_error());
