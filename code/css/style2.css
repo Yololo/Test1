@@ -27,11 +27,25 @@ input[type=radio].css-checkbox:checked + label.css-label {
 background-position: 0 -33px;
 }
 label.css-label {
-				background-image:url(../images/checkbox.png);
-				-webkit-touch-callout: none;
-				-webkit-user-select: none;
-				-khtml-user-select: none;
-				-moz-user-select: none;
-				-ms-user-select: none;
-				user-select: none;
-			}
+	background-image:url(../images/checkbox.png);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+input[type="search"] {
+	width:400px;
+	height:35px;
+	border: 1px solid #e2e2e2;
+	position: relative;
+	margin: -0.5em 0;
+	padding-left: 0.5em;
+}
+
+p.filter-table {
+  font-size: 1.5em;
+  padding-left: 0.9em;
+}
